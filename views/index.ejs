@@ -1,11 +1,314 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap-flex.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+	
+	<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+body {
+	font-family: 'Hanna', sans-serif;
+	background: url('/images/bg.jpg') fixed center center;
+	background-size: cover;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+	
+	.main-box{ 
+		background-color: #fff; 
+		margin-top: 60px; 
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-bottom: 60px;
+		/*box-shadow: 1px 1px 12px 0px #000;*/ 
+	}
+
+	.amount-box{ width: 160px; height: 160px; border-radius: 12px; background-color: #fff;margin: 0 auto; border:2px solid #999; line-height: 160px; font-size: 72px; text-align: center;}
+	.amount-text{ margin-top: 8px; text-align: center; }
+
+
+	.reward-box{ margin:0 auto; width: 120px; height: 120px; background-color: #ccc; display: flex; justify-content: center; align-items: center; }
+
+
+	.roid-data-wrapper{ display: inline-block; width: 150px; height: 180px; box-shadow: 1px 1px 4px 0px #999; margin: 4px;}
+	.tierlist-data-text{ width: 150px; height: 30px; border-top: 1px solid #ccc; line-height: 30px; text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- 모델에서 response render 때릴때 받아온 파라미터 가공해서 쓸수있음!. -->
+<!--
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+	<p>Welcome to <%= data %></p>
+-->
+<nav class="navbar navbar-dark bg-inverse">
+	<div class="container">
+		<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+		<div class="collapse navbar-toggleable-md" id="navbarResponsive">
+			<a class="navbar-brand" href="#">코아리그</a>
+			<ul class="nav navbar-nav float-lg-right">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Top</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Rules</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Reward</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Tier List</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Entry!</a>
+				</li>
+				<!--
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+					<div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+				-->
+			</ul>
+			<!--
+			<form class="form-inline float-lg-right">
+			<input class="form-control" type="text" placeholder="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+			-->
+		</div>
+	</div>
+</nav>
+
+<!-- Main Contents -->
+<div class="container main-box">
+        <!--
+  	<div class="header">
+        <nav>
+	        <ul class="nav nav-pills pull-right">
+	            <li role="presentation" class="active"><a href="#">Home</a></li>
+	            <li role="presentation"><a href="#">About</a></li>
+	            <li role="presentation"><a href="#">Contact</a></li>
+	        </ul>
+        </nav>
+        <h3 class="text-muted">Project name</h3>
+  	</div>
+        -->
+
+	<div class="jumbotron">
+		<h1 style="font-size: 54px;">코즈믹아레나 연말 리그</h1>
+		<p class="lead">요즘 패치도 열심히 하던데 너무 유저가 적어져서 안타까운 마음에 열어보는 리그..</p>
+		<p><a class="btn btn-primary" href="#" role="button">둘러보기!</a></p>
+	</div>
+
+	<div style="text-align: center; font-size: 24px;">
+		게임의 상태
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-4" style="height: 240px;">
+			<div class="amount-box">0</div>
+			<h5 class="amount-text">뉴비 유입</h5>
+		</div>
+		<div class="col-md-4" style="height: 240px;">
+			<div class="amount-box">10</div>
+			<h5 class="amount-text">평균 접속자 수</h5>
+		</div>
+		<div class="col-md-4" style="height: 240px;">
+			<div class="amount-box">30</div>
+			<h5 class="amount-text">일당 게시판 조회수</h5>
+		</div>
+	</div>
+
+	<div style="text-align: center; font-size: 24px;">
+		리그 룰
+	</div>
+	<hr>
+	<div class="row marketing">
+		<div class="col-lg-6">
+			<h4>3:3 마스터 리그</h4>
+			<hr>
+			<p>3:3 게임의 경우 한 직업군[ex)어썰트]이 게임을 휘어잡는 사태를 막기 수월하므로,
+			더 많은 전술을 기대할 수 있는 3:3 마스터 리그 기준으로 엔트리를 잡습니다.</p>
+
+			<h4>인원이 부족할 시 2:2 마스터 리그로 진행</h4>
+			<hr>
+			<p>3:3 리그로 조를 편성하기 힘든 정도일 경우, 2:2로 규모를 축소해 진행합니다.</p>
+
+			<h4>Double-Elimination Rule</h4>
+			<hr>
+			<p>강팀과 강팀이 붙어서 한 팀이 떨어졌을 때 나머지 승자들이 양학당할 위험이 있으므로..
+			고랭크 그룹과 저랭크 그룹 리그를 나누어 진행하며, 고랭크 그룹에서 패배한 팀은 저랭크 그룹의 승자와 싸우게 됩니다.</p>
+		</div>
+
+		<div class="col-lg-6">
+			<h4>Anti-OP Rule</h4>
+			<hr>
+			<p>아래의 "티어 리스트"를 참고해 리그에서 사용할 기체 리스트를 작성해 주세요.
+			만약 적 팀이 1티어 기체를 편성하지 않은 경우, 아군도 1티어 기체를 사용할 수 없습니다!.
+			</p>
+
+			<h4>티어 코스트 룰</h4>
+			<hr>
+			<p>1티어 기체는 오직 하나만 편성 가능하며, 1.5티어 / 2티어까지의 기체는 인게임 코스트가 아닌 고유 유닛 코스트가 배정됩니다.
+			만약 상대와 코스트가 3(1.5티어 2, 2티어 1쯤 주지않을까요..) 이상 차이가 나거나, 전력상 너무 큰 차이가 벌어질 경우 컨펌을 거쳐 기체 조정 요청이 들어갈 수 있습니다.  
+			</p>
+
+			<h4>과수비 제한 룰</h4>
+			<hr>
+			<p>이거 필요해보이는데 어떻게 생각하시나요..ㅇㄴ.
+			</p>
+		</div>
+	</div>
+
+	<div style="text-align: center; font-size: 24px;">
+		보상
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-3">
+			<h5 style="text-align: center">종합 1위 팀</h5>
+			<div class="reward-box">보상</div>
+		</div>
+		<div class="col-md-3">
+			<h5 style="text-align: center">종합 2위 팀</h5>
+			<div class="reward-box">보상</div>
+		</div>
+		<div class="col-md-3">
+			<h5 style="text-align: center">종합 3위 팀</h5>
+			<div class="reward-box">보상</div>
+		</div>
+		<div class="col-md-3">
+			<h5 style="text-align: center">종합 4위 팀</h5>
+			<div class="reward-box">보상</div>
+		</div>
+	</div>
+
+
+	<div style="text-align: center; font-size: 24px; margin-top: 40px;">
+		티어 리스트
+	</div>
+	<hr>
+	<nav style="text-align: center;">
+		<ul class="nav nav-pills" style="display: inline-block;">
+			<li class="nav-item">
+				<a class="nav-link active" href="#">Tier 1</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Tier 2</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Tier 3</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div style="width: 100%; height: auto; text-align: center;">
+		<div class="roid-data-wrapper">
+			<div style="background-size: cover; width: 150px; height: 150px;"></div>
+			<div class="tierlist-data-text">비슈라 카쿠즈치</div>
+		</div>
+		<div class="roid-data-wrapper">
+			<div style="background-size: cover; width: 150px; height: 150px;"></div>
+			<div class="tierlist-data-text">윈벨 [팬저 폼]</div>
+		</div>
+		<div class="roid-data-wrapper">
+			<div style="background-size: cover; width: 150px; height: 150px;"></div>
+			<div class="tierlist-data-text">etc...</div>
+		</div>
+	</div>
+
+	<div style="text-align: center; font-size: 24px; margin-top: 40px;">
+		리그 엔트리
+	</div>
+	<hr>
+	<div style="width: 100%; height: 300px; background-color: #ccc;"></div>
+
+	<!--
+	<footer class="footer" style="margin: 0 auto; margin-top: 20px;">
+		<p>&copy; 본 페이지에 사용된 이미지의 저작권은 모두 사이버스텝엔터테인먼트(주)에 귀속되어 있습니다. Ⓒ 2016 Si_Ru Invoked.</p>
+	</footer>
+	-->
+</div> <!-- /container -->
+
+</body>
 </html>
