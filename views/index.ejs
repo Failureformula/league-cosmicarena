@@ -1,314 +1,392 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><%= title %></title>
+	<title>코아리그 -</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap-flex.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
-	
-	<style type="text/css">
-@import url(https://fonts.googleapis.com/earlyaccess/hanna.css);
-
-body {
-	font-family: 'Hanna', sans-serif;
-	background: url('/images/bg.jpg') fixed center center;
-	background-size: cover;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  padding-bottom: 19px;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 960px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
-	
-	.main-box{ 
-		background-color: #fff; 
-		margin-top: 60px; 
-		padding-top: 20px;
-		padding-bottom: 20px;
-		margin-bottom: 60px;
-		/*box-shadow: 1px 1px 12px 0px #000;*/ 
-	}
-
-	.amount-box{ width: 160px; height: 160px; border-radius: 12px; background-color: #fff;margin: 0 auto; border:2px solid #999; line-height: 160px; font-size: 72px; text-align: center;}
-	.amount-text{ margin-top: 8px; text-align: center; }
-
-
-	.reward-box{ margin:0 auto; width: 120px; height: 120px; background-color: #ccc; display: flex; justify-content: center; align-items: center; }
-
-
-	.roid-data-wrapper{ display: inline-block; width: 150px; height: 180px; box-shadow: 1px 1px 4px 0px #999; margin: 4px;}
-	.tierlist-data-text{ width: 150px; height: 30px; border-top: 1px solid #ccc; line-height: 30px; text-align: center; }
-</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-<!-- 모델에서 response render 때릴때 받아온 파라미터 가공해서 쓸수있음!. -->
-<!--
-	<h1><%= title %></h1>
-	<p>Welcome to <%= title %></p>
-	<p>Welcome to <%= data %></p>
--->
-<nav class="navbar navbar-dark bg-inverse">
-	<div class="container">
-		<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
-		<div class="collapse navbar-toggleable-md" id="navbarResponsive">
-			<a class="navbar-brand" href="#">코아리그</a>
-			<ul class="nav navbar-nav float-lg-right">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Top</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Rules</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Reward</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Tier List</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Entry!</a>
-				</li>
-				<!--
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-					<div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
-				-->
-			</ul>
-			<!--
-			<form class="form-inline float-lg-right">
-			<input class="form-control" type="text" placeholder="Search">
-			<button class="btn btn-outline-success" type="submit">Search</button>
-			</form>
-			-->
-		</div>
+<div class="loader">
+	<div class="maware" style="width: 90px; height: 90px;  background-color: #333; color: #fff; display: flex;justify-content: center;align-items: center;">
+		<h4 style="margin: 0;">코아<br>리그</h4>
 	</div>
-</nav>
+</div>
 
+<header>
+	<nav class="navbar navbar-dark bg-inverse">
+		<div class="container">
+			<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+			<div class="collapse navbar-toggleable-md" id="navbarResponsive">
+				<a class="navbar-brand" href="#">코아리그</a>
+				<ul class="nav navbar-nav float-lg-right">
+					
+					<!--
+					<li class="nav-item active">
+						<a class="nav-link" href="#">맨 위로</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">대회 룰</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">보상</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">티어 리스트</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">아래로 가기</a>
+					</li>
+					-->
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
 <!-- Main Contents -->
 <div class="container main-box">
-        <!--
-  	<div class="header">
-        <nav>
-	        <ul class="nav nav-pills pull-right">
-	            <li role="presentation" class="active"><a href="#">Home</a></li>
-	            <li role="presentation"><a href="#">About</a></li>
-	            <li role="presentation"><a href="#">Contact</a></li>
-	        </ul>
-        </nav>
-        <h3 class="text-muted">Project name</h3>
-  	</div>
-        -->
-
 	<div class="jumbotron">
-		<h1 style="font-size: 54px;">코즈믹아레나 연말 리그</h1>
-		<p class="lead">요즘 패치도 열심히 하던데 너무 유저가 적어져서 안타까운 마음에 열어보는 리그..</p>
-		<p><a class="btn btn-primary" href="#" role="button">둘러보기!</a></p>
+		<h1 style="font-size: 36px;">코즈믹아레나 연말 리그</h1>
+		<p class="lead" style="font-size: 16px;">요즘 패치도 열심히 하던데 너무 유저가 적어져서 안타까운 마음에 열어보는 리그..!</p>
+		<p><a class="btn btn-primary" href="#" role="button" style="font-size: 14px !important;">둘러보기!</a></p>
 	</div>
 
-	<div style="text-align: center; font-size: 24px;">
-		게임의 상태
-	</div>
-	<hr>
 	<div class="row">
-		<div class="col-md-4" style="height: 240px;">
-			<div class="amount-box">0</div>
-			<h5 class="amount-text">뉴비 유입</h5>
-		</div>
-		<div class="col-md-4" style="height: 240px;">
-			<div class="amount-box">10</div>
-			<h5 class="amount-text">평균 접속자 수</h5>
-		</div>
-		<div class="col-md-4" style="height: 240px;">
-			<div class="amount-box">30</div>
-			<h5 class="amount-text">일당 게시판 조회수</h5>
+		<div class="col-md-12 rules-wrapper">
+			<div style="text-align: left; font-size: 24px; font-weight: bold; text-indent: 12px;">
+				<h4>대회 룰 <small style="color: #999; font-size: 16px;">- 꼼꼼하게 읽어주세요! 중요한 부분이에요.</small></h4>
+			</div>
+			<hr>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-shield"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">3/3/3</div> 
+				<div class="rules-desc">
+					지나친 수비적 운영으로 인해 <strong>루즈한 게임이 나오는 것을 방지</strong>하기 위한 룰입니다.<br>
+					<strong>300점 이상</strong>으로 이기고 있는 상태에서 
+					<strong>3분간</strong> 타워 교환이 일어나지 않으면
+					<strong>30초동안</strong> 타워 수비가 금지되며,<br>
+					이 시간동안은 타워 게이지를 채울 수 없으며 타워 바깥에서만 공격이 가능합니다.
+				</div>	
+			</div>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-bar-chart"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">티어 제도</div> 
+				<div class="rules-desc">
+					이번 리그는 각 로이드의 주관적 평가를 통해 나누어진 <strong>"티어 리스트"</strong>를 기반으로 진행됩니다.<br>
+					각 티어 기체에는 <strong>"코스트"</strong>라는 자원이 분배되며, 최대 10코스트까지 세팅이 가능합니다.<br>
+					만약 <strong>상대 팀의 평균 코스트</strong>와 3 이상 차이가 날 시, 코스트 조정이 이루어질 수 있습니다.
+				</div>
+			</div>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-list"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">코스트 제한</div> 
+				<div class="rules-desc">
+					1티어 기체는 <strong>5코스트</strong>, 2티어 기체와 3티어 기체는 각각 <strong>2, 1코스트</strong>의 값을 가지게 됩니다.<br>
+					예를 들어 1티어 1기체, 2티어 2기체, 3티어 1기체를 세팅하셨다면 10코스트가 모두 찼으므로<br> 
+					나머지 한 기체를 티어 외 기체로 세팅해야 합니다.
+				</div>
+			</div>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-exclamation-triangle"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">1티어 제한</div> 
+				<div class="rules-desc">
+					본 리그의 "티어 제도"에서 <strong>1티어로 분류된 기체</strong>들은 유저 당 1기체씩만 세팅이 가능하며,<br>
+					<strong>상대가 세팅한 1티어 기체 수와 같은 수만 엔트리 가능</strong>합니다. ex)엔트리하지 않을 경우 두 팀 다 사용 불가능.<br>
+					1티어 기체들의 경우 대부분 기용하는 순간 게임의 흐름이 뒤집히기 때문에, 조금 더 섬세한 운영이 요구됩니다. 
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div style="text-align: center; font-size: 24px;">
-		리그 룰
-	</div>
-	<hr>
-	<div class="row marketing">
-		<div class="col-lg-6">
-			<h4>3:3 마스터 리그</h4>
-			<hr>
-			<p>3:3 게임의 경우 한 직업군[ex)어썰트]이 게임을 휘어잡는 사태를 막기 수월하므로,
-			더 많은 전술을 기대할 수 있는 3:3 마스터 리그 기준으로 엔트리를 잡습니다.</p>
-
-			<h4>인원이 부족할 시 2:2 마스터 리그로 진행</h4>
-			<hr>
-			<p>3:3 리그로 조를 편성하기 힘든 정도일 경우, 2:2로 규모를 축소해 진행합니다.</p>
-
-			<h4>Double-Elimination Rule</h4>
-			<hr>
-			<p>강팀과 강팀이 붙어서 한 팀이 떨어졌을 때 나머지 승자들이 양학당할 위험이 있으므로..
-			고랭크 그룹과 저랭크 그룹 리그를 나누어 진행하며, 고랭크 그룹에서 패배한 팀은 저랭크 그룹의 승자와 싸우게 됩니다.</p>
-		</div>
-
-		<div class="col-lg-6">
-			<h4>Anti-OP Rule</h4>
-			<hr>
-			<p>아래의 "티어 리스트"를 참고해 리그에서 사용할 기체 리스트를 작성해 주세요.
-			만약 적 팀이 1티어 기체를 편성하지 않은 경우, 아군도 1티어 기체를 사용할 수 없습니다!.
-			</p>
-
-			<h4>티어 코스트 룰</h4>
-			<hr>
-			<p>1티어 기체는 오직 하나만 편성 가능하며, 1.5티어 / 2티어까지의 기체는 인게임 코스트가 아닌 고유 유닛 코스트가 배정됩니다.
-			만약 상대와 코스트가 3(1.5티어 2, 2티어 1쯤 주지않을까요..) 이상 차이가 나거나, 전력상 너무 큰 차이가 벌어질 경우 컨펌을 거쳐 기체 조정 요청이 들어갈 수 있습니다.  
-			</p>
-
-			<h4>과수비 제한 룰</h4>
-			<hr>
-			<p>이거 필요해보이는데 어떻게 생각하시나요..ㅇㄴ.
-			</p>
-		</div>
-	</div>
-
-	<div style="text-align: center; font-size: 24px;">
-		보상
-	</div>
-	<hr>
 	<div class="row">
-		<div class="col-md-3">
-			<h5 style="text-align: center">종합 1위 팀</h5>
-			<div class="reward-box">보상</div>
-		</div>
-		<div class="col-md-3">
-			<h5 style="text-align: center">종합 2위 팀</h5>
-			<div class="reward-box">보상</div>
-		</div>
-		<div class="col-md-3">
-			<h5 style="text-align: center">종합 3위 팀</h5>
-			<div class="reward-box">보상</div>
-		</div>
-		<div class="col-md-3">
-			<h5 style="text-align: center">종합 4위 팀</h5>
-			<div class="reward-box">보상</div>
+		<div class="col-md-12 rules-wrapper">
+			<div style="text-align: left; font-size: 24px; font-weight: bold; text-indent: 12px;">
+				<h4>보상 <small style="color: #999; font-size: 16px;">- 우승자와 여러 기여자를 위한 소소한 보상입니다..(정말 소소하잖아..!)</small></h4>
+			</div>
+			<hr>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-trophy"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">1위 팀</div> 
+				<div class="rules-desc" style="font-size: 16px; line-height: 60px;">
+					5연차 돌리시라구, 우승팀원 1분당 문화상품권 1만원권 <strong>2매</strong>를 드립니다!  
+				</div>	
+			</div>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<span style="color: #fff;">2</span>
+					</div>
+				</div>
+				<div class="rules-maintext">2위 팀</div> 
+				<div class="rules-desc" style="font-size: 16px; line-height: 60px;">
+					스피어픽서 사다 쓰시길 바라며-, 팀원 당 문화상품권 <strong>1만원권</strong>을 보상으로 드려요.
+				</div>
+			</div>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-star"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">뉴 메타</div> 
+				<div class="rules-desc" style="font-size: 16px; line-height: 30px;">
+					창의적인 기체 세팅으로 새로운 플레이를 보여주신 플레이어분께<br>
+					문화상품권 <strong>1만원권</strong>을 선물로 드립니다!.
+				</div>
+			</div>
+			<div class="rules text-center">
+				<div class="rules-iconbox-outer">
+					<div class="rules-iconbox-inner">
+						<i class="rules-icon fa fa-star"></i>
+					</div>
+				</div>
+				<div class="rules-maintext">추첨 보상</div> 
+				<div class="rules-desc" style="font-size: 16px; line-height: 30px;">
+					리그에 참가하신 분들과 중계를 관전하신 분들께는<br>
+					추첨을 통해 베라 파인트 아이스크림 기프티콘을 보내 드려요!
+				</div>
+			</div>
 		</div>
 	</div>
 
-
-	<div style="text-align: center; font-size: 24px; margin-top: 40px;">
-		티어 리스트
+	<div style="text-align: left; font-size: 24px; font-weight: bold; text-indent: 12px;">
+		<h4>티어 리스트 <small style="color: #999; font-size: 16px;">- 이번 리그에서 사용될 티어 표입니다. (이미지 작업 도와주세요..ㅠㅜ)</small></h4>
 	</div>
 	<hr>
-	<nav style="text-align: center;">
+	<nav style="text-align: left;">
 		<ul class="nav nav-pills" style="display: inline-block;">
 			<li class="nav-item">
-				<a class="nav-link active" href="#">Tier 1</a>
+				<a class="t1 nav-tier nav-link active" href="#">Tier 1</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Tier 2</a>
+				<a class="t2 nav-tier nav-link" href="#">Tier 2</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Tier 3</a>
+				<a class="t3 nav-tier nav-link" href="#">Tier 3</a>
 			</li>
 		</ul>
 	</nav>
 
-	<div style="width: 100%; height: auto; text-align: center;">
-		<div class="roid-data-wrapper">
-			<div style="background-size: cover; width: 150px; height: 150px;"></div>
-			<div class="tierlist-data-text">비슈라 카쿠즈치</div>
+	<div style="width: 100%; height: auto; margin-bottom: 40px;">
+	<!-- 존나 무식한 방법. 나중에 JSON 파싱해와서 어펜드 때립시다. -->
+	<!-- 앵귤러 배워보고 싶다. 솔직히 머리 딸려서 독학은 좀 어려움. -->
+		<div class="tier-data-list t1_wrapper">
+			<h6> Tier 1 : 상성의 영향을 거의 받지 않으며 게임의 흐름을 한번에 바꿀 수 있는 기체</h6>
+			<h6>흄</h6>
+			<button class="btn btn-danger tier1">피피스</button>
+			<button class="btn btn-danger tier1">리니에</button>
+			<button class="btn btn-danger tier1">린카 링크스</button>
+			<button class="btn btn-danger tier1">지쿤 론</button>
+			<button class="btn btn-danger tier1">윈벨[팬저 스타일]</button>
+			<h6>로봇</h6>
+			<button class="btn btn-danger tier1">비슈라 카쿠즈치</button>
+			<button class="btn btn-danger tier1">B폰자Ar</button>
 		</div>
-		<div class="roid-data-wrapper">
-			<div style="background-size: cover; width: 150px; height: 150px;"></div>
-			<div class="tierlist-data-text">윈벨 [팬저 폼]</div>
+
+		<div class="tier-data-list t2_wrapper" style="display: none;">
+			<h6> Tier 2 : 1티어 기체를 상성으로 처리할 수 있으며 3티어 기체보다 화력이 강한 기체</h6>
+			<h6>흄</h6>
+			<button class="btn btn-warning tier2">리카(샷건)</button>
+			<button class="btn btn-warning tier2">루셰</button>
+			<button class="btn btn-warning tier2">나크타샤</button>
+			<button class="btn btn-warning tier2">오우카</button>
+			<button class="btn btn-warning tier2">클레어모르테</button>
+			<button class="btn btn-warning tier2">아이비스</button>
+			<button class="btn btn-warning tier2">마토이(뱅가드 폼)</button>
+			<button class="btn btn-warning tier2">파르미에(래빗 폼 이후)</button>
+			<button class="btn btn-warning tier2">미아리</button>
+			<button class="btn btn-warning tier2">텔레네</button>
+			<button class="btn btn-warning tier2">사피나</button>
+			<button class="btn btn-warning tier2">아나 코멧트</button>
+			<button class="btn btn-warning tier2">스텔라 카라칼</button>
+			<h6>로봇</h6>
+			<button class="btn btn-warning tier2">헤카토케레스</button>
+			<button class="btn btn-warning tier2">P-모나</button>
+			<button class="btn btn-warning tier2">다그 드라이버</button>
+			<button class="btn btn-warning tier2">쉐이덴 카이</button>
+			<button class="btn btn-warning tier2">에어리데</button>
+			<button class="btn btn-warning tier2">솔브랜서</button>
+			<button class="btn btn-warning tier2">기간트 암즈</button>
+			<button class="btn btn-warning tier2">아르테리스</button>
 		</div>
-		<div class="roid-data-wrapper">
-			<div style="background-size: cover; width: 150px; height: 150px;"></div>
-			<div class="tierlist-data-text">etc...</div>
+
+		<div class="tier-data-list t3_wrapper" style="display: none;">
+			<h6> Tier 3 : 2티어 기체를 상성으로 처리할 수 있으며 고유 무장을 갖춘 기체</h6>
+			<h6>흄</h6>
+			<button class="btn btn-primary tier3">치히로(오리지널)</button>
+			<button class="btn btn-primary tier3">치히로(라그나바렛 폼)</button>
+			<button class="btn btn-primary tier3">레이</button>
+			<button class="btn btn-primary tier3">레이(사쿠라 폼)</button>
+			<button class="btn btn-primary tier3">마토이(오리지널)</button>
+			<button class="btn btn-primary tier3">파르미에</button>
+			<button class="btn btn-primary tier3">로렛타</button>
+			<button class="btn btn-primary tier3">미아</button>
+			<button class="btn btn-primary tier3">앨리스티어</button>
+			<button class="btn btn-primary tier3">아스카(하티가름 폼)</button>
+			<button class="btn btn-primary tier3">아스카(오리지널)</button>
+			<button class="btn btn-primary tier3">릴리레인(오리지널)</button>
+			<button class="btn btn-primary tier3">릴리레인(어설트)</button>
+			<button class="btn btn-primary tier3">리카(오리지널)</button>
+			<button class="btn btn-primary tier3">실바</button>
+			<button class="btn btn-primary tier3">시무 마오</button>
+			<button class="btn btn-primary tier3">오드릿</button>
+			<h6>로봇</h6>
+			<button class="btn btn-primary tier3">라그나 바렛</button>
+			<button class="btn btn-primary tier3">뱅가드액스</button>
+			<button class="btn btn-primary tier3">뱅가드랜스</button>
+			<button class="btn btn-primary tier3">뱅가드팬서</button>
+			<button class="btn btn-primary tier3">액시온</button>
+			<button class="btn btn-primary tier3">기간베르그</button>
+			<button class="btn btn-primary tier3">F-류르</button>
+			<button class="btn btn-primary tier3">안토리온</button>
+			<button class="btn btn-primary tier3">비틀랜더</button>
+			<button class="btn btn-primary tier3">크슈르브 3rd</button>
+			<button class="btn btn-primary tier3">플래쉬보머</button>
+			<button class="btn btn-primary tier3">마이트봄버 BB</button>
+			<button class="btn btn-primary tier3">그리스트</button>
+			<button class="btn btn-primary tier3">하드 보일덱</button>
 		</div>
+		<h6 style="text-align: center;">선택된 기체들의 코스트 합 : <span class="cost-data"></span></h6>
+		<h6 style="text-align: center; font-size: 14px;">- [V2] 아직 보기 좋지 않아서 Ctrl+F가 빠를 수도 있어요. 표에서 빠진 기체나, 티어 배정에 대한 의견이 있으시다면 건의해주세요! -</h6>
 	</div>
 
-	<div style="text-align: center; font-size: 24px; margin-top: 40px;">
-		리그 엔트리
-	</div>
+	<div style="text-align: left; font-size: 24px; font-weight: bold; text-indent: 12px;">
+		<h4>리그 엔트리 / 펀딩 <small style="color: #999; font-size: 16px;">- 리그 참가에 대한 문의나, 상품 지원은 여기에서.</small></h4>
 	<hr>
-	<div style="width: 100%; height: 300px; background-color: #ccc;"></div>
+		<p style="font-size: 12px; text-align: center;">미안해요! 아직 메일 전송 서버 작업이 안 되어서 여기서 직접 전송은 못 해요..<br>
+		피드백이나 상품 지원에 대한 내용은 <a href="#">Failureformula7750@naver.com</a>으로 보내주시거나 인게임의 시루에게 연락해주세요!.<br>
+		</p>
+	</div>
 
-	<!--
-	<footer class="footer" style="margin: 0 auto; margin-top: 20px;">
-		<p>&copy; 본 페이지에 사용된 이미지의 저작권은 모두 사이버스텝엔터테인먼트(주)에 귀속되어 있습니다. Ⓒ 2016 Si_Ru Invoked.</p>
-	</footer>
-	-->
+
 </div> <!-- /container -->
 
+<footer style="width: 100%; height: 80px; background-color: #333;">
+	<h6 style="line-height: 80px; font-size: 14px; text-align: center; color: #fff; margin: 0;">- Merry Christmas! 2016 Si_Ru Invoked -</h6>
+</footer>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+//넘우나 간-딴한 티어 구별코드..사실 이런거 짜는것도 어렵다 어캄.주거야됨.
+var cost = 0 || 0;
+var t1_isClicked = false;
+
+	//1티어클릭5코증가
+	$('.tier1').click(function(){
+		if( cost > 5){
+			alert('코스트는 10을 넘을 수 없어요!');
+			return false;
+		}
+		if(t1_isClicked == false){
+			$(this).addClass('activated');
+			t1_isClicked = true;
+			cost += 5;	
+		}else{ 
+			if($(this).hasClass('activated') == false){
+				alert('1티어 기체는 하나만 엔트리할 수 있습니다!');
+				return false;
+			}else{
+				$(this).removeClass('activated');
+				t1_isClicked = false;
+				cost -= 5;
+			}
+
+		}
+		console.log(cost);
+		$('.cost-data').hide().html(cost).fadeIn(120);
+	});
+	//2티어클릭2코증가
+	$('.tier2').click(function(){
+
+		if($(this).hasClass('activated') == false){
+			if( cost > 8){
+				alert('코스트는 10을 넘을 수 없어요!');
+				return false;
+			}
+			$(this).addClass('activated');
+			cost += 2;	
+		}else{ 
+			$(this).removeClass('activated');
+			cost -= 2;
+		}
+		console.log(cost);
+		$('.cost-data').hide().html(cost).fadeIn(120);
+	});
+	//3티어클릭1코증가
+	$('.tier3').click(function(){
+		if($(this).hasClass('activated') == false){	
+			if( cost == 10){
+				alert('코스트는 10을 넘을 수 없어요!');
+				return false;
+			}
+			$(this).addClass('activated');
+			cost += 1;	
+		}else{ 
+			$(this).removeClass('activated');
+			cost -= 1;
+		}
+		console.log(cost);
+		$('.cost-data').hide().html(cost).fadeIn(120);
+	});
+
+	//귀찮으니 복붙갈겨걍..
+	$('.t1').click(function(e){
+		e.preventDefault();
+		$('.nav-tier').removeClass('active');
+		$('.tier-data-list').hide();
+		$('.t1_wrapper').fadeIn();
+		$(this).addClass('active');
+	});
+	$('.t2').click(function(e){
+		e.preventDefault();
+		$('.nav-tier').removeClass('active');
+		$('.tier-data-list').hide();
+		$('.t2_wrapper').fadeIn();
+		$(this).addClass('active');
+	});
+	$('.t3').click(function(e){
+		e.preventDefault();
+		$('.nav-tier').removeClass('active');
+		$('.tier-data-list').hide();
+		$('.t3_wrapper').fadeIn();
+		$(this).addClass('active');
+	});
+
+	$(document).ready(function(){
+		setTimeout(function(){
+			$('.loader').fadeOut(900);
+		},1000);
+	});
+
+</script>
 </body>
 </html>
